@@ -2,7 +2,9 @@
 
 Virtual Avatar Builder is a modern, interactive web app for building and customizing virtual avatars. You can mix and match head shapes, eyes, mouths, hair styles, hair colors, and clothing to create your own unique character. Built with React and TypeScript, this project highlights dynamic UI, component-based architecture, and responsive design.
 
-![Screenshot](./screenshot.png) <!-- Replace with your screenshot -->
+## Demo
+
+[Watch the demo video](./public/demo.mp4)
 
 ## Features
 
@@ -42,7 +44,7 @@ Virtual Avatar Builder is a modern, interactive web app for building and customi
    yarn start
    ```
 4. **Open in your browser:**
-   Visit [http://localhost:3000](http://localhost:3000)
+   Visit [http://localhost:8080](http://localhost:8080)
 
 ## Usage
 
