@@ -36,7 +36,7 @@ const AvatarBuilderPage: React.FC = () => {
 
   const handleDownload = async () => {
     if (avatarRef.current) {
-      toast.loading("Generating avatar image...");
+      const toastId = toast.loading("Generating avatar image...");
       try {
         const canvas = await html2canvas(avatarRef.current, {
           backgroundColor: null, // Transparent background
@@ -49,8 +49,10 @@ const AvatarBuilderPage: React.FC = () => {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        toast.dismiss(toastId);
         toast.success("Avatar downloaded successfully!");
       } catch (error) {
+        toast.dismiss(toastId);
         console.error("Error downloading avatar:", error);
         toast.error("Failed to download avatar. Please try again.");
       }
@@ -73,7 +75,7 @@ const AvatarBuilderPage: React.FC = () => {
             selectedFeatures={features}
             onSelectFeature={handleSelectFeature}
           />
-          <div className="mt-6 flex flex-col sm:flex-row justify-center gap-4">
+          <div className="mt-6 flex flex-col sm:flex-row justify-center md:justify-start gap-4">
             <Button onClick={handleRandomize} variant="secondary">
               Randomize Avatar
             </Button>

@@ -76,7 +76,7 @@ const AvatarDisplay = React.forwardRef<HTMLDivElement, AvatarDisplayProps>(({ fe
       case "hoodie":
         return "w-32 h-24 rounded-b-lg rounded-t-md";
       case "suit":
-        return "w-30 h-28 rounded-b-lg rounded-t-sm";
+        return "w-32 h-28 rounded-b-lg rounded-t-sm";
       default:
         return "w-28 h-20 rounded-b-lg";
     }
@@ -90,7 +90,7 @@ const AvatarDisplay = React.forwardRef<HTMLDivElement, AvatarDisplayProps>(({ fe
           "absolute z-20 bg-yellow-600",
           getHairStyleClass(features.hair),
           features.hair === "bald" ? "hidden" : "block",
-          features.hair === "long" ? "top-0" : "-top-4",
+          features.hair === "long" ? "top-0" : (features.hair === "short" ? "top-10" : features.hair === "curly" ? "top-6" : "top-0"),
         )}
       ></div>
 
