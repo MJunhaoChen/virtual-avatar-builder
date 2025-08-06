@@ -10,7 +10,7 @@ const AvatarBuilderPage: React.FC = () => {
   const [features, setFeatures] = useState<AvatarFeatures>(defaultAvatarFeatures);
   const avatarRef = useRef<HTMLDivElement>(null);
 
-  const handleSelectFeature = (category: keyof AvatarFeatures, feature: string) => {
+  const handleSelectFeature = (category: string, feature: string) => {
     setFeatures((prev) => ({
       ...prev,
       [category]: feature,
