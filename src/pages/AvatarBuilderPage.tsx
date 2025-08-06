@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import AvatarDisplay from "@/components/AvatarDisplay";
 import FeatureSelector from "@/components/FeatureSelector";
 import { defaultAvatarFeatures, AvatarFeatures, avatarFeatureOptions } from "@/types/avatar";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import html2canvas from "html2canvas";
 
 const AvatarBuilderPage: React.FC = () => {
   const [features, setFeatures] = useState<AvatarFeatures>(defaultAvatarFeatures);
+  const avatarRef = useRef<HTMLDivElement>(null);
 
   const handleSelectFeature = (category: keyof AvatarFeatures, feature: string) => {
     setFeatures((prev) => ({
@@ -32,6 +34,31 @@ const AvatarBuilderPage: React.FC = () => {
     toast.info("Avatar randomized!");
   };
 
+  const handleDownload = async () => {
+    if (avatarRef.current) {
+      toast.loading("Generating avatar image...");
+      try {
+        const canvas = await html2canvas(avatarRef.current, {
+          backgroundColor: null, // Transparent background
+          useCORS: true, // Important for images loaded from other origins
+        });
+        const image = canvas.toDataURL("image/png");
+        const link = document.createElement("a");
+        link.href = image;
+        link.download = "my-avatar.png";
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        toast.success("Avatar downloaded successfully!");
+      } catch (error) {
+        console.error("Error downloading avatar:", error);
+        toast.error("Failed to download avatar. Please try again.");
+      }
+    } else {
+      toast.error("Avatar display not found.");
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 dark:bg-gray-900 p-4">
       <h1 className="text-4xl font-bold mb-8 text-gray-800 dark:text-gray-100">
@@ -39,7 +66,7 @@ const AvatarBuilderPage: React.FC = () => {
       </h1>
       <div className="flex flex-col md:flex-row items-center md:items-start gap-8 w-full max-w-4xl">
         <div className="flex-shrink-0">
-          <AvatarDisplay features={features} />
+          <AvatarDisplay features={features} ref={avatarRef} />
         </div>
         <div className="flex-grow w-full">
           <FeatureSelector
@@ -52,6 +79,9 @@ const AvatarBuilderPage: React.FC = () => {
             </Button>
             <Button onClick={handleReset} variant="destructive">
               Reset Avatar
+            </Button>
+            <Button onClick={handleDownload}>
+              Download Avatar
             </Button>
           </div>
         </div>

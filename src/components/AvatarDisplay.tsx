@@ -6,7 +6,7 @@ interface AvatarDisplayProps {
   features: AvatarFeatures;
 }
 
-const AvatarDisplay: React.FC<AvatarDisplayProps> = ({ features }) => {
+const AvatarDisplay = React.forwardRef<HTMLDivElement, AvatarDisplayProps>(({ features }, ref) => {
   const featureStyles: { [key: string]: string } = {
     head: "w-24 h-24 rounded-full bg-gray-300 flex items-center justify-center text-xs font-bold",
     eyes: "w-12 h-4 bg-gray-700 rounded-full absolute top-8",
@@ -83,7 +83,7 @@ const AvatarDisplay: React.FC<AvatarDisplayProps> = ({ features }) => {
   };
 
   return (
-    <div className="relative w-48 h-64 flex flex-col items-center justify-center bg-white rounded-lg shadow-lg overflow-hidden">
+    <div ref={ref} className="relative w-48 h-64 flex flex-col items-center justify-center bg-white rounded-lg shadow-lg overflow-hidden">
       {/* Hair */}
       <div
         className={cn(
@@ -133,6 +133,6 @@ const AvatarDisplay: React.FC<AvatarDisplayProps> = ({ features }) => {
       ></div>
     </div>
   );
-};
+});
 
 export default AvatarDisplay;
