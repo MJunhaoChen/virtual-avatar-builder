@@ -1,10 +1,10 @@
-import React, { useState, useRef } from "react";
 import AvatarDisplay from "@/components/AvatarDisplay";
 import FeatureSelector from "@/components/FeatureSelector";
-import { defaultAvatarFeatures, AvatarFeatures, avatarFeatureOptions } from "@/types/avatar";
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner";
+import { AvatarFeatures, avatarFeatureOptions, defaultAvatarFeatures } from "@/types/avatar";
 import html2canvas from "html2canvas";
+import React, { useRef, useState } from "react";
+import { toast } from "sonner";
 
 const AvatarBuilderPage: React.FC = () => {
   const [features, setFeatures] = useState<AvatarFeatures>(defaultAvatarFeatures);

@@ -1,6 +1,6 @@
-import React from "react";
-import { AvatarFeatures } from "@/types/avatar";
 import { cn } from "@/lib/utils";
+import { AvatarFeatures } from "@/types/avatar";
+import React from "react";
 
 interface AvatarDisplayProps {
   features: AvatarFeatures;

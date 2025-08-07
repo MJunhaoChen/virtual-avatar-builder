@@ -1,8 +1,8 @@
-import React from "react";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { avatarFeatureOptions } from "@/types/avatar";
+import React from "react";
 
 interface FeatureSelectorProps {
   selectedFeatures: { [key: string]: string };
