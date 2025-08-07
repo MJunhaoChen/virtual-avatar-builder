@@ -4,18 +4,17 @@ Virtual Avatar Builder is a modern, interactive web app for building and customi
 
 ## Demo
 
-[Watch the demo video](./public/demo.mp4)
+![Demo](./public/demo.gif)
 
 ## Features
 
-- 🧑‍🎨 **Customizable Avatars:** Choose head, eyes, mouth, hair style, hair color, and clothing.
-- 🎨 **Dynamic Hair Colors:** Select from multiple hair colors for all hair styles.
-- 👕 **Clothing Options:** T-shirt (with Patagonia-style logo), hoodie, and suit (with lapels and shirt).
-- 🖱️ **Interactive UI:** Real-time updates as you select features.
-- 📱 **Responsive Design:** Looks great on desktop and mobile.
-- 📥 **Download Avatar:** Export your creation as a PNG image.
-- 🔄 **Randomize & Reset:** Instantly randomize or reset your avatar.
-- ✨ **Modern Stack:** Built with React, TypeScript, and Tailwind CSS.
+- **Customizable Avatars:** Choose head, eyes, mouth, hair style, hair color, and clothing.
+- **Dynamic Hair Colors:** Select from multiple hair colors for all hair styles.
+- **Clothing Options:** T-shirt (with Patagonia-style logo), hoodie, and suit (with lapels and shirt).
+- **Interactive UI:** Real-time updates as you select features.
+- **Responsive Design:** Looks great on desktop and mobile.
+- **Download Avatar:** Export your creation as a PNG image.
+- **Randomize & Reset:** Instantly randomize or reset your avatar.
 
 ## Tech Stack
 
@@ -53,17 +52,3 @@ Virtual Avatar Builder is a modern, interactive web app for building and customi
 - Click "Randomize Avatar" for a surprise look.
 - Click "Reset Avatar" to go back to default.
 - Click "Download Avatar" to save your creation as a PNG.
-
-## Customization
-
-- Add more features (e.g., accessories, backgrounds) by editing `avatarFeatureOptions` and updating components.
-- Tweak styles in the components for a unique look.
-- Deploy to [Vercel](https://vercel.com/), [Netlify](https://www.netlify.com/), or [GitHub Pages](https://pages.github.com/).
-
-## Live Demo
-
-[GitHub Repo](https://github.com/MJunhaoChen/virtual-avatar-builder)
-
-## License
-
-MIT
